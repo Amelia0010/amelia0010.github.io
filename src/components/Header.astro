@@ -1,0 +1,46 @@
+---
+interface Props {
+}
+
+---
+<header class="amy-header">
+    <ul>
+        <li><a href='/'>Main Page</a></li>
+        <li><a href='about'>About</a></li>
+        <li><a href='contact'>Contact</a></li>
+    </ul>
+</header>
+<style>
+	.amy-header {
+        text-align: center;
+        position: fixed;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, 0);
+        background: red;
+        width: 100%;
+        max-width: 800px;
+        border: auto;
+	}
+
+    .amy-header > ul {
+        position: relative;
+        list-style-type: none; /* Remove bullets */
+        position: relative;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, 0);
+    }
+
+    .amy-header > ul > li {
+        float: left;
+    }
+
+    .amy-header > ul > li > a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 0 16px;
+        text-decoration: none;
+    }
+</style>
