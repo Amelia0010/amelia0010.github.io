@@ -1,0 +1,27 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+	title: string;
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+    <div class='blog'>
+        <h1>{frontmatter.title}</h1>
+        <slot/>
+    </div>
+</Layout>
+
+<style>
+    .blog {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        font-size: 12pt;
+        line-height: 1.6;
+    }
+</style>
