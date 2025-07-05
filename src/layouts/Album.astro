@@ -1,0 +1,32 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+	title: string;
+    images: any;
+}
+
+const { title, images } = Astro.props;
+---
+
+<Layout title=title>
+    <div class='album'>
+		{images.map((image: any) => <a href={image.default.src}><img src={image.default.src}/></a>)}
+    </div>
+</Layout>
+
+<style>
+    .album {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        font-size: 12pt;
+        line-height: 1.6;
+
+        img {
+            padding: 1.5%;
+            width: 30%
+        }
+    }
+</style>

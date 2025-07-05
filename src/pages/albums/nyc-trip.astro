@@ -1,0 +1,17 @@
+---
+import Album from '../../layouts/Album.astro';
+const allImages = Object.values(import.meta.glob('../../images/nyc-trip/*.jpg', { eager: true }));
+---
+
+<Album title='NYC Trip' images={allImages}></Album>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		font-size: 20px;
+		line-height: 1.6;
+	}
+</style>
