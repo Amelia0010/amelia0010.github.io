@@ -7,11 +7,13 @@ interface Props {
 }
 
 const { title, images } = Astro.props;
+images.sort((image1, image2) => image2.default.height - image1.default.height)
 ---
 
 <Layout title=title>
     <div class='album'>
-		{images.map((image: any) => <a href={image.default.src}><img src={image.default.src}/></a>)}
+		{images.filter((image: any) => image.default.height > image.default.width).map((image: any) => <a href={image.default.src}><img src={image.default.src}/></a>)}
+		{images.filter((image: any) => image.default.height < image.default.width).map((image: any) => <a href={image.default.src}><img src={image.default.src}/></a>)}
     </div>
 </Layout>
 

@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+const albums = Object.values(import.meta.glob('./albums/*.astro', { eager: true }));
+---
+
+<Layout title="Albums">
+	<main>
+        <ul>
+		{albums.map((post: any) => <li><a href={post.url}>{post.title}</a></li>)}
+        </ul>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		font-size: 20px;
+		line-height: 1.6;
+	}
+</style>

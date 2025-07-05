@@ -1,6 +1,8 @@
 ---
 import Album from '../../layouts/Album.astro';
 const allImages = Object.values(import.meta.glob('../../images/nyc-trip/*.jpg', { eager: true }));
+
+export const title='NYC Trip'
 ---
 
 <Album title='NYC Trip' images={allImages}></Album>
