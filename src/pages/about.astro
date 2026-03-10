@@ -1,12 +1,42 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import selfie from '../../src/images/assets/hotel-selfie.jpeg'
 ---
 
 <Layout title="About">
 	<main>
-	hello am amalie :)
+		<Image src={selfie} alt="Amy in a hotel room in NYC" id="selfie"/>
+		<div id="bio">
+			Hi! My name is Anna Amalie Bøgelund Pihl, though I usually just shorten it to Amalie Pihl and often just go by Amy.
+			<br/><br/>
+			I'm a 26 year old Software Engineer from the small town of Nakskov, Denmark. <!-- insert wikipedia link here -->
+			My hobbies tend to fluctuate a lot over time, but at the moment I'm really into movies, good food (and wine), and just kinda exploring the world.
+			I'm also really into programming and used to spend a lot of time playing video games, though I've increasingly been doing the latter less and less. 
+			I also used to be a scout as a child in Denmark!
+			<br/><br/>
+			I would describe myself as very extroverted, always enjoying chatting with others and spending time together. I've also been described as "<i>full of
+			joy and whimsy</i>", as a "<i>very bubbly person</i>", and "<i>deeply silly</i>". One coworker once described me as their "<i>little sun</i>" because I'm always shining.
+			I'd also say I'm very straight-forward, a "<i>say what I mean and mean what I say</i>" kind of person. 
+			<br/><br/>
+			As should be evident by this page, my preferred programming languages do not include webdev languages. 
+			Instead, my most comfortable languages are Java (From having worked in it for 3-ish years),
+			Python (usually my prototyping/faffing about language),
+			and Haskell (the language I try to do Advent of Code in every year).
+			I've also been teaching myself Swift recently as an exercise, though I wouldn't quite describe myself as comfortable in it yet.
+		</div>
 	</main>
 </Layout>
 
-<style/>
+<style>
+	#selfie {
+		max-width: 30%;
+		height: fit-content;
+		float: left;
+		margin-right: 5px;
+	}
+	#bio {
+		text-align: justify;	
+		font-size: 12pt;
+	}
+</style>

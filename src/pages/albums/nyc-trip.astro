@@ -1,6 +1,8 @@
 ---
 import Album from '../../layouts/Album.astro';
-const allImages = Object.values(import.meta.glob('../../images/nyc-trip/*.jpg', { eager: true }));
+// Okay so I know that import.meta.glob gives me records and not the actual ImageMetaData but I can't be bothered to fight javascript, so let's just do this :)
+// Let's like, make this a static function somewhere so we only do something bad once instead of peppering it all over the repository
+const allImages = Object.values<ImageMetadata>(import.meta.glob<ImageMetadata>('../../images/nyc-trip/*.jpg', { eager: true})).map((help: any) => help.default)
 
 export const title='NYC Trip'
 ---

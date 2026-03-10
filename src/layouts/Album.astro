@@ -1,19 +1,21 @@
 ---
+import type { ImageMetadata} from 'astro';
+import { Image } from 'astro:assets';
 import Layout from './Layout.astro';
 
 interface Props {
 	title: string;
-    images: any;
+    images: Array<ImageMetadata>;
 }
 
 const { title, images } = Astro.props;
-images.sort((image1, image2) => image2.default.height - image1.default.height)
+images.sort((image1, image2) => image2.height - image1.height)
 ---
 
 <Layout title={title}>
     <div class='album'>
-		{images.filter((image: any) => image.default.height > image.default.width).map((image: any) => <a href={image.default.src}><img src={image.default.src}/></a>)}
-		{images.filter((image: any) => image.default.height < image.default.width).map((image: any) => <a href={image.default.src}><img src={image.default.src}/></a>)}
+		{images.filter((image: ImageMetadata) => image.height > image.width).map((image: ImageMetadata) => <a href={image.src}><Image src={image} alt=""/></a>)}
+		{images.filter((image: ImageMetadata) => image.height < image.width).map((image: ImageMetadata) => <a href={image.src}><Image src={image} alt=""/></a>)}
     </div>
 </Layout>
 
@@ -28,7 +30,8 @@ images.sort((image1, image2) => image2.default.height - image1.default.height)
 
         img {
             padding: 1.5%;
-            width: 30%
+            width: 30%;
+            height: fit-content;
         }
     }
 </style>
