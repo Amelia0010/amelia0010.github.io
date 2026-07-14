@@ -9,3 +9,43 @@ image:
 tags: ["Politics", "Denmark"]
 layout: ../../layouts/BlogLayout.astro
 ---
+Being a dork who thinks too much about too many things, I've thought a lot about politics throughout my life. Most of this time has been spent
+on systems rather than policies or parties, and one common thing I've done is re-imagining countries with different electoral system, mostly
+redoing US elections using other forms of governance.
+
+Recently I had an idea to do the inverse, to apply the US electoral system to my home country of Denmark. This would mean replacing our fairly
+decent proportionally representative system with a series of first-past-the-post constituencies that collectively distort the voice of the people.
+I'm going to completely ignore the existence of the presidency, as that's not as straight-forward to simulate on existing data.
+
+## The Danish electoral system
+
+To begin with, let's quickly go over how the Danish electoral system works in reality. The country is split into 10 Storkredse ("Great Circles")
+made up of 92 Opstillingskredse ("Nomination Circles"). Additionally, 
+<a href="https://www.thedanishparliament.dk/-/media/sites/ft/pdf/publikationer/the-constitutional-act-of-denmark.pdf">the constitution</a> tells us
+that Greenland and the Faeroe Islands each get to send 2 MPs, essentially making them 2 Storkredse with a single Opstillingskreds each. 
+
+(Insert Picture here of the storkredse)
+
+Each Storkreds gets a number of Kredsmandater ("Circle Mandates") proportional to their population and population density (redistributed every 5 years), 
+and a number of Tillægsmandater ("Additional Mandates"). The Kredsmandater are distributed according to the <a href="https://en.wikipedia.org/wiki/D%27Hondt_method">
+D'Hondt</a> method, whereafter the difference between the national voteshare and MP-count is calculated for all parties, and the Tillægsmandater
+are assigned to their parties to best equalise the two.
+
+For more information on the current system, please consult <a href="https://www.elections.im.dk/media/15735/the-electoral-system-in-denmark.pdf">
+the Danish Interior Ministry's documentation</a>.
+
+## Applying the US electoral system
+
+The US operates in a <s>much worse</s> very different manner. The country is split into 50 states with 435 constituencies. Each state elects 2
+senators (in two different first past the post races) and each constituency elects a single representative. 
+
+(I am deliberately ignoring the 6 year cycle of senators right now, and treating it all as one big race)
+
+For the purposes of our system, we shall consider each Storkreds to be a state and each Opstillingskreds to be a constituency. Each Storkreds gets to
+elect 2 senators, and each Opstillingskreds gets to elect 1 representative.
+
+This approach does come withone significant downside: while mandates are reproportioned every 5 years, Opstillingskredse are not redrawn or re-distributed, 
+since mandates are distributed in the entire Storkreds. This results in Opstillingskredse having between 16K and 60K people. Whilst this is in absolute terms
+less than the differences in the US (where the smallest district is <a href="https://en.wikipedia.org/wiki/Rhode_Island's_1st_congressional_district">RI-1</a> 
+with 500K, and the largest is <a href="https://en.wikipedia.org/wiki/Delaware's_at-large_congressional_district">DE</a> with ~1M people), it's a much
+bigger difference proportionally.
